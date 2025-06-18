@@ -66,10 +66,16 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "WSL distro installed."
 Write-Host "===================================================================="
 Write-Host ""
-Write-Host "Next steps:"
-Write-Host "1. Launch your Linux distribution (e.g., Ubuntu) from the Start Menu or by running 'wsl' in PowerShell."
-Write-Host "2. Complete the initial Linux user setup (username and password)."
-Write-Host "3. In the WSL terminal, run: bash ~/wsl-init.sh"
-Write-Host "4. Return to PowerShell and run: .\scripts\wsl-provision.ps1"
-Write-Host ""
-Write-Host "You can safely close this window."
+Write-Host @"
+====================================================================
+WSL installation complete.
+
+Next steps:
+1. Launch your Linux distribution (e.g., Ubuntu) from the Start Menu or by running 'wsl' in PowerShell.
+2. Complete the initial Linux user setup (username and password).
+3. In the WSL terminal, run: bash ~/wsl-init.sh
+4. Return to PowerShell and run: .\scripts\wsl-provision.ps1
+
+You can safely close this window.
+====================================================================
+"@

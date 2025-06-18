@@ -29,16 +29,24 @@ $homeExists = & wsl.exe test -d "$wslHome"; if ($LASTEXITCODE -ne 0) {
 
 # 3. Copy .ssh Files
 if (Test-Path $windowsSsh) {
-    Write-Host "Copying .ssh files from $windowsSsh to WSL: $wslSsh"
-    & wsl.exe mkdir -p "$wslSsh"
-    Get-ChildItem -Path $windowsSsh -File | ForEach-Object {
-        $src = $_.FullName
-        $srcWsl = "/mnt/c" + ($src.Substring(2) -replace '\\','/')
-        Write-Host "Copying $srcWsl to $wslSsh/"
-        & wsl.exe cp "$srcWsl" "$wslSsh/"
+    $purge = Read-Host "Do you want to delete the SSH keys from the Windows .ssh directory? (y/n)"
+    if ($purge -eq 'y' -or $purge -eq 'Y') {
+        Remove-Item -Path (Join-Path $windowsSsh '*') -Force
+        Write-Host "SSH keys deleted from Windows .ssh directory."
+    } else {
+        Write-Host "SSH keys left in Windows .ssh directory. Remember to remove them for security."
     }
-    Write-Host ".ssh files copied to WSL home directory."
-    & wsl.exe sudo chown -R ${wslUser}: "$wslSsh"
+}
+Write-Host "Copying .ssh files from $windowsSsh to WSL: $wslSsh"
+& wsl.exe mkdir -p "$wslSsh"
+Get-ChildItem -Path $windowsSsh -File | ForEach-Object {
+    $src = $_.FullName
+    $srcWsl = "/mnt/c" + ($src.Substring(2) -replace '\\','/')
+    Write-Host "Copying $srcWsl to $wslSsh/"
+    & wsl.exe cp "$srcWsl" "$wslSsh/"
+}
+Write-Host ".ssh files copied to WSL home directory."
+& wsl.exe sudo chown -R ${wslUser}: "$wslSsh"
 } else {
     Write-Warning "No .ssh directory found at $windowsSsh. Skipping SSH key copy."
 }

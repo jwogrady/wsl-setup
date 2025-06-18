@@ -8,6 +8,12 @@ This README provides step-by-step instructions for setting up your Windows Subsy
 
 The setup process consists of three main scripts, each to be run in a specific order and environment (Windows PowerShell or the WSL terminal):
 
+| Step | Script                  | Where to Run         | Purpose                                 |
+|------|-------------------------|----------------------|-----------------------------------------|
+| 1    | wsl-install.ps1         | PowerShell (Admin)   | Install WSL and Linux distribution      |
+| 2    | wsl-init.sh             | WSL Terminal         | Configure Linux environment             |
+| 3    | wsl-provision.ps1       | PowerShell           | Copy config files from Windows to WSL   |
+
 ---
 
 ## Detailed Instructions

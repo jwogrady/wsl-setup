@@ -2,6 +2,12 @@
 
 set -e
 
+# Check if running inside WSL
+if [ -z "$WSL_DISTRO_NAME" ]; then
+  echo "This script should be run inside a WSL terminal."
+  exit 1
+fi
+
 echo "====================================================================="
 echo "Starting initial configuration for your new Ubuntu WSL environment..."
 echo "====================================================================="
@@ -29,4 +35,6 @@ echo " - Add your SSH keys to ~/.ssh"
 echo " - Customize your shell or install more packages"
 echo " - Restart your terminal for all changes to take effect"
 echo "====================================================================="
+
+touch ~/.wsl-init-complete
 
