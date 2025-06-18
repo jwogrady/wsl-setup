@@ -1,4 +1,23 @@
 #!/bin/bash
+# -----------------------------------------------------------------------------
+# Script Name: organize-wsl-setup.sh
+#
+# Purpose:
+#   This script is intended to organize and manage the setup process for a
+#   Windows Subsystem for Linux (WSL) environment. It may include tasks such as
+#   installing required packages, configuring system settings, and organizing
+#   files or directories related to WSL setup.
+#
+# Usage:
+#   ./organize-wsl-setup.sh
+#   (Ensure the script has execute permissions: chmod +x organize-wsl-setup.sh)
+#
+# Prerequisites:
+#   - Bash shell environment
+#   - Appropriate permissions to execute system-level commands (may require sudo)
+#   - WSL installed on the system
+#
+# -----------------------------------------------------------------------------
 set -e
 
 echo "Organizing WSL setup project structure..."

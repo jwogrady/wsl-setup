@@ -69,6 +69,14 @@ The setup process consists of three main scripts, each to be run in a specific o
 
 ---
 
+## Troubleshooting
+
+- If you encounter permission errors, ensure you are running PowerShell as Administrator.
+- If WSL is not found, verify that the Windows Subsystem for Linux feature is enabled.
+- If scripts do not copy files as expected, check that your `.ssh` and `.scripts` directories contain the correct files.
+
+---
+
 **Note:**  
 Follow each step in order and in the correct environment (PowerShell or WSL terminal) for a smooth setup experience.  
 For more details or troubleshooting, refer to the comments within each script.

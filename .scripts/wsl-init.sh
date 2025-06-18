@@ -1,6 +1,25 @@
 #!/bin/bash
+# -----------------------------------------------------------------------------
+# Script Name: wsl-init.sh
+#
+# Description:
+#   This script initializes and configures the Windows Subsystem for Linux (WSL)
+#   environment. It automates essential setup tasks to ensure a consistent and
+#   reliable WSL configuration for users.
+#
+# Usage:
+#   ./wsl-init.sh
+#
+# Prerequisites:
+#   - Must be run inside a WSL environment.
+#   - Requires Bash shell.
+#   - Script must have executable permissions (chmod +x wsl-init.sh).
+#
+# Notes:
+#   - Uses 'set -euo pipefail' for robust error handling.
+# -----------------------------------------------------------------------------
 
-set -e
+set -euo pipefail
 
 # Check if running inside WSL
 if [ -z "$WSL_DISTRO_NAME" ]; then
